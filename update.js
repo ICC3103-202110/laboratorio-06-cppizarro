@@ -9,7 +9,7 @@ function converter(value, from, to){
         }
     }
 
-    if (from === 'Fahrenheit'){
+    else if (from === 'Fahrenheit'){
         if (to == 'Celsius'){
             convertedValue = (value - 32)/(9/5)
         }
@@ -18,7 +18,7 @@ function converter(value, from, to){
         }
     }
 
-    if (from === 'Kelvin'){
+    else if (from === 'Kelvin'){
         if (to == 'Fahrenheit'){
             convertedValue = (value - 273.15)*(9/5) + 32
         }
@@ -31,12 +31,13 @@ function converter(value, from, to){
     
 }
 
-function update(source, value, from, to){
-    
+function update(source, value, from, to, model){
+
     const convertedValue = converter(value, from, to)
 
     if (source  === true){
         return {
+            ...model,
             leftValue: value,
             leftUnit: from,
             rightValue: convertedValue,
@@ -46,6 +47,7 @@ function update(source, value, from, to){
 
     if (source  === false) {
         return {
+            ...model,
             leftValue: convertedValue,
             leftUnit: to,
             rightValue: value,
