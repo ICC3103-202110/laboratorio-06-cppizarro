@@ -2,6 +2,8 @@ const figlet = require('figlet')
 const chalk = require('chalk')
 const inquirer = require('inquirer')
 
+const {model} = require('./model')
+
 function getTitle(){
     return chalk.cyanBright(
         figlet.textSync(
@@ -33,23 +35,37 @@ function getTable(model){
 }
 
 function getInput(model){
-    const {billAmount} = model
-    const {percentage} = model
-    return inquirer.prompt([
-        {
-            name: 'billAmount',
-            type: 'input',
-            message: 'Bill Amount?',
-            default: billAmount
-        },
+    inquirer.prompt([
+            {
+                type: 'confirm',
+                name: 'source',
+                message: 'Left temperature is source? ',
 
-        {
-            name: 'percentage',
-            type: 'input',
-            message: 'Tip(%)?',
-            default: percentage
-        }
-    ])
+            },
+            {
+                type: 'input',
+                name: 'value',
+                message: 'Temperature value to convert?'
+
+            },
+            {
+                type: 'list',
+                message: 'From?',
+                name: 'from',
+                choices: ['Celsius', 'Fahrenheit', 'Kelvin']
+
+            },
+            {
+                type: 'list',
+                message: 'To?',
+                name: 'to',
+                choices: ['Celsius', 'Fahrenheit', 'Kelvin']
+
+            }
+        ])
+        .then(function(answer){
+            console.log(answer.source)
+        })
 }
 
 module.exports = {
@@ -57,3 +73,5 @@ module.exports = {
     getTable,
     getInput
 }
+
+getInput(model)
