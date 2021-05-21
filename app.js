@@ -12,14 +12,10 @@ async function app(model){
         console.log(title)
         printTable(table)
 
-        console.log('hola')
-        //const {source, value, from, to} = await getInput(model)
-        //const updateModel = update(source, value, from, to)
-
-        //console.log(updateModel)
-        console.log('hola')
-
-        //model = updateModel
+        const {source, value, from, to} = await getInput(model)
+        const updateModel = update(source, value, from, to)
+        
+        model = updateModel
     }
 }
 

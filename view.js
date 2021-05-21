@@ -73,5 +73,3 @@ module.exports = {
     getTable,
     getInput
 }
-
-getInput(model)
