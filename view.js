@@ -2,8 +2,6 @@ const figlet = require('figlet')
 const chalk = require('chalk')
 const inquirer = require('inquirer')
 
-const {model} = require('./model')
-
 function getTitle(){
     return chalk.cyanBright(
         figlet.textSync(
