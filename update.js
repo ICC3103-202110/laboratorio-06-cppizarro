@@ -55,3 +55,7 @@ function update(source, value, from, to, model){
         }
     }
 }
+
+module.exports = {
+    update
+}
