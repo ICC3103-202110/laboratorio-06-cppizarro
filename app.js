@@ -5,7 +5,6 @@ const {printTable} = require('console-table-printer')
 async function app(model){
     const title = getTitle()
     while(true){
-        //const title = getTitle()
         const table = getTable(model)
 
         console.clear()
