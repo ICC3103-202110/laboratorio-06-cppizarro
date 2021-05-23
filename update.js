@@ -1,11 +1,14 @@
 function converter(value, from, to){
+    if (from === to){
+        convertedValue = value
+    }
 
-    if (from === 'Celsius'){
+    else if (from === 'Celsius'){
         if (to == 'Fahrenheit'){
             convertedValue = value*(9/5) + 32
         }
         else if (to === 'Kelvin'){
-            convertedValue = value + 273.15
+            convertedValue = + value + 273.15
         }
     }
 
