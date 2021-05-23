@@ -59,16 +59,3 @@ function update(source, value, from, to, model){
 module.exports = {
     update
 }
-
-/*
-const {initModel} = require('./model')
-const {printTable} = require('console-table-printer')
-const {getTitle, getTable, getInput} = require('./view') 
-
-tab = getTable(initModel)
-printTable(tab)
-
-const newm = update(true, 100, 'Kelvin', 'Celsius', initModel)
-tab1 = getTable(newm)
-printTable(tab1)
-*/

@@ -1,4 +1,3 @@
-//const {initModel} = require('./model')
 const {update} = require('./update')
 const {getTitle, getTable, getInput} = require('./view')
 const {printTable} = require('console-table-printer')

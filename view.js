@@ -32,8 +32,20 @@ function getTable(model){
     ]
 }
 
-function getInput(model){
+function source_temp(){
     inquirer.prompt([
+        {
+            type: 'confirm',
+            name: 'source',
+            message: 'Left temperature is source? ',
+
+        }
+    ])
+}
+
+function getInput(model){
+
+    return inquirer.prompt([
             {
                 type: 'confirm',
                 name: 'source',
@@ -61,9 +73,10 @@ function getInput(model){
 
             }
         ])
+        /*
         .then(function(answer){
             console.log(answer.source)
-        })
+        })*/
 }
 
 module.exports = {
