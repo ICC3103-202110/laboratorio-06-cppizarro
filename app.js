@@ -1,5 +1,5 @@
 const {update} = require('./update')
-const {getTitle, getTable, getInput} = require('./view')
+const {getTitle, getTable, source_temp, getInput} = require('./view')
 const {printTable} = require('console-table-printer')
 
 async function app(model){
@@ -11,7 +11,8 @@ async function app(model){
         console.log(title)
         printTable(table)
 
-        const {source, value, from, to} = await getInput(model)
+        const {source} = await source_temp()
+        const {value, from, to} = await getInput(model, source)
         const updateModel = update(source, value, from, to)
         
         model = updateModel

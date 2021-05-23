@@ -43,19 +43,34 @@ function source_temp(){
     ])
 }
 
-function getInput(model){
+function source_temp(){
+    return inquirer.prompt([
+        {
+            type: 'confirm',
+            name: 'source',
+            message: 'Left temperature is source? ',
+
+        }
+    ])
+}
+
+function getInput(model, source){
+
+    const {leftValue} = model
+    const {rightValue} = model
+    if (source === true){
+        defaultVal = leftValue
+    }
+    else if (source === false){
+        defaultVal = rightValue
+    }
 
     return inquirer.prompt([
             {
-                type: 'confirm',
-                name: 'source',
-                message: 'Left temperature is source? ',
-
-            },
-            {
                 type: 'input',
                 name: 'value',
-                message: 'Temperature value to convert?'
+                message: 'Temperature value to convert?',
+                default: defaultVal
 
             },
             {
@@ -73,14 +88,11 @@ function getInput(model){
 
             }
         ])
-        /*
-        .then(function(answer){
-            console.log(answer.source)
-        })*/
 }
 
 module.exports = {
     getTitle,
     getTable,
+    source_temp,
     getInput
 }
